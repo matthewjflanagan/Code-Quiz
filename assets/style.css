@@ -1,0 +1,7 @@
+/* setting the display for timer and highscore link */
+header {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
