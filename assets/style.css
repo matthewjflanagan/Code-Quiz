@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
 /* setting the display for timer and highscore link */
 header {
     display: flex;
@@ -5,3 +10,21 @@ header {
     justify-content: space-between;
 }
 
+.container {
+    width: 800px;
+    max-width: 80%;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px 2px;
+}
+
+.answer-btn-div {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#answer-buttons {
+    width: fit-content;
+}

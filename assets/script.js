@@ -1,3 +1,26 @@
+var startButton = document.getElementById('start-btn')
+var questionContainerEl = document.getElementById('question-container')
+
+startButton.addEventListener('click', startGame)
+
+// Function for starting the timer and showing the first question when the Start button is selected
+function startGame() {
+    console.log('Started')
+    startButton.classList.add('hide')
+    questionContainerEl.classList.remove('hide')
+    setNextQuestion()
+}
+
+// Function for deleting the previous questions and showing the next question when an answer is selected
+function setNextQuestion() {
+
+}
+
+// Function for showing an answer is correct and adding points to total score
+function selectAnswer () {
+
+}
+
 // Selecting the h1 element with the class .time
 var timeEl = document.querySelector(".time");
 
@@ -25,3 +48,4 @@ function showScore() {
 }
 
 setTime();
+
