@@ -19,12 +19,32 @@ header {
     box-shadow: 0 0 10px 2px;
 }
 
+/* #hide {
+    display: none;
+} */
+
 .answer-btn-div {
-    display: flex;
-    flex-direction: column;
     padding: 10px;
 }
 
 #answer-buttons {
     width: fit-content;
+}
+
+#question {
+    font-weight: bold;
+    color: lightyellow;
+    background-color: lightslategray;
+    padding: 5px;
+    border: 2px solid black;
+}
+
+.btn {
+    color: lightyellow;
+    background-color: lightslategray;
+}
+
+#start-btn {
+    color: lightyellow;
+    background-color: lightslategray;
 }
