@@ -1,10 +1,13 @@
 var time = document.getElementById("time");
 var secondsLeft = 120;
+var score = document.getElementById("score");
+var points = 0;
 var start = document.getElementById("start-btn");
 var mode = "go";
 var question = document.getElementById("question");
 var container = document.getElementById("container");
 var answers = document.getElementById("answers");
+var options = [A, B, C, D];
 var A = document.getElementById("A");
 var B = document.getElementById("B");
 var C = document.getElementById("C");
@@ -35,6 +38,10 @@ start.addEventListener('click', function () {
   C.textContent = "C: C++";
   D.textContent = "D: HTML";
 
+  if ('click' === A || B || C || D) {
+    points++;
+    score.textContent = "Score: " + points;
+  }
 });
 
 function setTime () {
