@@ -9,25 +9,19 @@
 </head>
 <body>
   <header>
-    <h1 class="time"></h1>
-    <h1 class="highscores">View Highscores</h1>
+    <h1 id="time"></h1>
+    <h1 id="highscores">View Highscores</h1>
   </header>
-  <main>
-    <div class="container" id="hide">
-      <div id="question-container">
-        <div id="question"></div>
-        <div id="answer-buttons" class="answer-btn-div">
-          <button class="btn" data-letter="A">A: Javascript</button>
-          <button class="btn" data-letter="B">B: CSS</button>
-          <button class="btn" data-letter="C">C: C++</button>
-          <button class="btn" data-letter="D">D: JQuery</button>
-        </div>
-      </div>
-      <div class="operation-buttons">
-        <button id="start-btn" class="start-btn">Start</button>
-      </div>
+    <div id="container">
+      <div id="question"></div>
+      <ul id="answers">
+        <button id = "A"></button>
+        <button id = "B"></button>
+        <button id = "C"></button>
+        <button id = "D"></button>
+      </ul>
+      <button id="start-btn">Start</button>
     </div>
-  </main>
   <script src="script.js"></script>
 </body>
 </html>

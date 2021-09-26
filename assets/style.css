@@ -10,7 +10,11 @@ header {
     justify-content: space-between;
 }
 
-.container {
+.hide {
+    display: none;
+}
+
+#container {
     width: 800px;
     max-width: 80%;
     background-color: antiquewhite;
@@ -19,17 +23,9 @@ header {
     box-shadow: 0 0 10px 2px;
 }
 
-/* #hide {
-    display: none;
-} */
-
-.answer-btn-div {
-    padding: 10px;
-}
-
-#answer-buttons {
+/* #answer-buttons {
     width: fit-content;
-}
+} */
 
 #question {
     font-weight: bold;
@@ -37,11 +33,6 @@ header {
     background-color: lightslategray;
     padding: 5px;
     border: 2px solid black;
-}
-
-.btn {
-    color: lightyellow;
-    background-color: lightslategray;
 }
 
 #start-btn {
