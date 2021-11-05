@@ -1,5 +1,5 @@
 var time = document.getElementById("time");
-var secondsLeft = 120;
+var secondsLeft = 60;
 var score = document.getElementById("score");
 var points = 0;
 var start = document.getElementById("start-btn");
@@ -19,20 +19,35 @@ question.textContent = "Click Start to begin the quiz!";
 
 var quizArray = [
   {
-    question : "What coding language is best practice for styling a webpage",
+    question : "What coding language is best practice for styling an HTML document?",
     options : ["A: Javascript", "B: CSS", "C: C++", "D: HTML"],
     rightAnswer : "B: CSS"
   },
   {
-    question : "dsfsadefcsadf",
-    options : ["A: Javascript", "B: CSS", "C: C++", "D: HTML"],
-    rightAnswer : "C: C++"
+    question : "What third-party API assists with styling an HTML document?",
+    options : ["A: Bootstrap", "B: jQuery", "C: Javascipt", "D: CSS"],
+    rightAnswer : "A: Bootstrap"
   },
   {
-    question : "jsndfkj;asndkljASNDKLASNKLDMAS",
-    options : ["A: Javascript", "B: CSS", "C: C++", "D: HTML"],
-    rightAnswer : "D: HTML"
-  }
+    question : "What command line argument makes a folder?",
+    options : ["A: code .", "B: git add .", "C: mkdir", "D: touch"],
+    rightAnswer : "C: mkdir"
+  },
+  {
+    question : "What command line argument makes a folder?",
+    options : ["A: code .", "B: git add .", "C: mkdir", "D: touch"],
+    rightAnswer : "C: mkdir"
+  },
+  {
+    question : "What year was Javascript 1.0 debuted by Netscape?",
+    options : ["A: 1973", "B: 1988", "C: 1995", "D: 2002"],
+    rightAnswer : "C: 1995"
+  },
+  {
+    question : "What is the abbreviation DHTML that describes the combination of HTML, CSS, and Javascript?",
+    options : ["A: Data HTML", "B: DOM HTML", "C: Document HTML", "D: Dynamic HTML"],
+    rightAnswer : "D: Dynamic HTML"
+  },
 ]
 
 start.addEventListener('click', function () {
@@ -42,6 +57,8 @@ start.addEventListener('click', function () {
   if (mode === "go") {
     mode = "hide";
     start.setAttribute("class", "hide");
+    answers.removeAttribute("class", "hide");
+
   } 
   // If start button has not been pressed show it
   else {
@@ -51,7 +68,6 @@ start.addEventListener('click', function () {
   // Change text to first question
   question.textContent = quizArray[0].question
 
-
   // Change text to answer choices
   // find way to not hard code 
   // put in variable allow to increment
@@ -59,37 +75,23 @@ start.addEventListener('click', function () {
   B.textContent = quizArray[0].options[1];
   C.textContent = quizArray[0].options[2];
   D.textContent = quizArray[0].options[3];
-
-  if ('click' === A || B || C || D) {
-    points++;
-    score.textContent = "Score: " + points;
-  }
 });
-
-// A.addEventListener('click', optionsButton("A"))
-// B.addEventListener('click', optionsButton("B"))
-// C.addEventListener('click', optionsButton("C"))
-// D.addEventListener('click', optionsButton("D"))
 
 
 function optionsButton (id) {
 
-
-  // if(document.getElementById(id) != null){
-    console.log('Success!',)
-    console.log('this', this)
-  // }
-
   var btnText =  document.getElementById(id).innerText
-
 
   if (btnText === quizArray[0].rightAnswer) {
     console.log('Correct!')
-    //point go up
+    // point go up
+    points++;
+    score.textContent = "Score: " + points;
     // new question 
   } else {
     console.log('wrong')
     //timer go down
+    secondsLeft-=10;
     //new question
   }
 

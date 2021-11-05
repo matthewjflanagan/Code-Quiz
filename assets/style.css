@@ -12,6 +12,7 @@ header {
 
 .hide {
     display: none;
+    visibility: hidden;
 }
 
 #container {
