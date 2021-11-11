@@ -7,6 +7,7 @@ var mode = "go";
 var question = document.getElementById("question");
 var container = document.getElementById("container");
 var answers = document.getElementById("answers");
+var currentQuestionIndex = 0;
 
 // var options = [A, B, C, D];
 var A = document.getElementById("A");
@@ -33,9 +34,9 @@ var quizArray = [
     rightAnswer : "C: mkdir"
   },
   {
-    question : "What command line argument makes a folder?",
+    question : "What command line argument makes a file?",
     options : ["A: code .", "B: git add .", "C: mkdir", "D: touch"],
-    rightAnswer : "C: mkdir"
+    rightAnswer : "D: touch"
   },
   {
     question : "What year was Javascript 1.0 debuted by Netscape?",
@@ -51,17 +52,16 @@ var quizArray = [
 
 function setNextQuestion() {
   // Change text to first question
-  for (var i = 0; i < quizArray.length; i++) {
-    question.textContent = quizArray[i].question
+    question.textContent = quizArray[currentQuestionIndex].question
 
     // Change text to answer choices
     // find way to not hard code 
     // put in variable allow to increment
-    A.textContent = quizArray[i].options[0];
-    B.textContent = quizArray[i].options[1];
-    C.textContent = quizArray[i].options[2];
-    D.textContent = quizArray[i].options[3];
-  }
+    console.log("inside the setNextQuestions")
+    A.textContent = quizArray[currentQuestionIndex].options[0];
+    B.textContent = quizArray[currentQuestionIndex].options[1];
+    C.textContent = quizArray[currentQuestionIndex].options[2];
+    D.textContent = quizArray[currentQuestionIndex].options[3];
 
 }
 
@@ -73,11 +73,12 @@ start.addEventListener('click', function () {
     mode = "hide";
     start.setAttribute("class", "hide");
     answers.removeAttribute("class", "hide");
-
+    console.log("i am inside the container")
   } 
   // If start button has not been pressed show it
   else {
     mode = "go"
+    console.log("inside if loop")
   }
   setNextQuestion();
 });
@@ -87,22 +88,19 @@ function optionsButton (id) {
 
   var btnText =  document.getElementById(id).innerText
 
-  if (btnText === quizArray[0].rightAnswer) {
+  if (btnText === quizArray[currentQuestionIndex].rightAnswer) {
     console.log('Correct!')
     // point go up
     points++;
     score.textContent = "Score: " + points;
-    // new question 
-    setNextQuestion();
   } else {
     console.log('wrong')
     //timer go down
     secondsLeft-=10;
-    //new question
-    setNextQuestion();
   }
-
-  //
+  //new question
+  currentQuestionIndex++;
+  setNextQuestion();
 }
 
 function showScore() {
