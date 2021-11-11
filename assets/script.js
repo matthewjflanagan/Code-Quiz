@@ -7,6 +7,7 @@ var mode = "go";
 var question = document.getElementById("question");
 var container = document.getElementById("container");
 var answers = document.getElementById("answers");
+
 // var options = [A, B, C, D];
 var A = document.getElementById("A");
 var B = document.getElementById("B");
@@ -14,8 +15,6 @@ var C = document.getElementById("C");
 var D = document.getElementById("D");
 
 question.textContent = "Click Start to begin the quiz!";
-
-// Listen for a click event on button
 
 var quizArray = [
   {
@@ -50,6 +49,22 @@ var quizArray = [
   },
 ]
 
+function setNextQuestion() {
+  // Change text to first question
+  for (var i = 0; i < quizArray.length; i++) {
+    question.textContent = quizArray[i].question
+
+    // Change text to answer choices
+    // find way to not hard code 
+    // put in variable allow to increment
+    A.textContent = quizArray[i].options[0];
+    B.textContent = quizArray[i].options[1];
+    C.textContent = quizArray[i].options[2];
+    D.textContent = quizArray[i].options[3];
+  }
+
+}
+
 start.addEventListener('click', function () {
   // Start time
   setTime();
@@ -64,17 +79,7 @@ start.addEventListener('click', function () {
   else {
     mode = "go"
   }
-
-  // Change text to first question
-  question.textContent = quizArray[0].question
-
-  // Change text to answer choices
-  // find way to not hard code 
-  // put in variable allow to increment
-  A.textContent = quizArray[0].options[0];
-  B.textContent = quizArray[0].options[1];
-  C.textContent = quizArray[0].options[2];
-  D.textContent = quizArray[0].options[3];
+  setNextQuestion();
 });
 
 
@@ -88,17 +93,22 @@ function optionsButton (id) {
     points++;
     score.textContent = "Score: " + points;
     // new question 
+    setNextQuestion();
   } else {
     console.log('wrong')
     //timer go down
     secondsLeft-=10;
     //new question
+    setNextQuestion();
   }
 
   //
 }
 
+function showScore() {
+  // Calls function to show score and option to enter intials into Highscores 
 
+}
 
 function setTime () {
     // Setting the interval of countdown in variable timerInterval
@@ -109,8 +119,8 @@ function setTime () {
         if(secondsLeft === 0) {
             // Stops execution of action at set interval 0
             clearInterval(timerInterval);
-              // Calls function to show score and option to enter intials into Highscores 
-            // showScore();
+            // Calls function to show score and option to enter intials into Highscores 
+            showScore();
         }
       }, 1000);
   }
