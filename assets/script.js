@@ -3,6 +3,7 @@ var secondsLeft = 60;
 var score = document.getElementById("score");
 var points = 0;
 var start = document.getElementById("start-btn");
+var save = document.getElementById("save-btn");
 var mode = "go";
 var question = document.getElementById("question");
 var container = document.getElementById("container");
@@ -63,6 +64,12 @@ function setNextQuestion() {
   C.textContent = quizArray[currentQuestionIndex].options[2];
   D.textContent = quizArray[currentQuestionIndex].options[3];
 
+  if(currentQuestionIndex > 5) {
+    // Stops execution of action at set interval 0
+    clearInterval(timerInterval);
+    // Calls function to show score and option to enter intials into Highscores 
+    showScore();
+}
 }
 
 start.addEventListener('click', function () {
@@ -105,11 +112,17 @@ function optionsButton (id) {
 
 function showScore() {
   // Calls function to show score and option to enter intials into Highscores 
+  var userName = document.getElementById("userName").value;
   container.setAttribute("class", "hide");
   viewHighscores.setAttribute("class", "hide");
   highscoreDiv.removeAttribute("class", "hide");
-
+  localStorage.setItem('userName', userName)
 }
+
+save.addEventListener('click', function () {
+  localStorage.setItem('userName', userName)
+  // save quiz grade with userName entry
+});
 
 function setTime () {
     // Setting the interval of countdown in variable timerInterval
