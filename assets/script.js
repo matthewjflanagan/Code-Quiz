@@ -11,6 +11,7 @@ var answers = document.getElementById("answers");
 var highscoreDiv = document.getElementById("highscoresDiv");
 var viewHighscores = document.getElementById("highscores");
 var currentQuestionIndex = 0;
+var highscoresPage = document.getElementById("highscoresPage");
 
 // var options = [A, B, C, D];
 var A = document.getElementById("A");
@@ -112,14 +113,18 @@ function optionsButton (id) {
 
 function showScore() {
   // Calls function to show score and option to enter intials into Highscores 
-  var userName = document.getElementById("userName").value;
   container.setAttribute("class", "hide");
   viewHighscores.setAttribute("class", "hide");
   highscoreDiv.removeAttribute("class", "hide");
-  localStorage.setItem('userName', userName)
+}
+
+function renderHighscores() {
+  var userName = localStorage.getItem('userName', userName)
+  highscoresPage.textContent = userName;
 }
 
 save.addEventListener('click', function () {
+  var userName = document.getElementById("userName").value;
   localStorage.setItem('userName', userName)
   // save quiz grade with userName entry
 });
