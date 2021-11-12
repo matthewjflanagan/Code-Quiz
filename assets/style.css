@@ -24,6 +24,15 @@ header {
     box-shadow: 0 0 10px 2px;
 }
 
+#highscoresDiv {
+    width: 800px;
+    max-width: 80%;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px 2px;
+}
+
 /* #answer-buttons {
     width: fit-content;
 } */

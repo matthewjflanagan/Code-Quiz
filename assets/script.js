@@ -7,6 +7,8 @@ var mode = "go";
 var question = document.getElementById("question");
 var container = document.getElementById("container");
 var answers = document.getElementById("answers");
+var highscoreDiv = document.getElementById("highscoresDiv");
+var viewHighscores = document.getElementById("highscores");
 var currentQuestionIndex = 0;
 
 // var options = [A, B, C, D];
@@ -52,16 +54,14 @@ var quizArray = [
 
 function setNextQuestion() {
   // Change text to first question
-    question.textContent = quizArray[currentQuestionIndex].question
+  question.textContent = quizArray[currentQuestionIndex].question
 
-    // Change text to answer choices
-    // find way to not hard code 
-    // put in variable allow to increment
-    console.log("inside the setNextQuestions")
-    A.textContent = quizArray[currentQuestionIndex].options[0];
-    B.textContent = quizArray[currentQuestionIndex].options[1];
-    C.textContent = quizArray[currentQuestionIndex].options[2];
-    D.textContent = quizArray[currentQuestionIndex].options[3];
+  // Change text to answer choices
+  console.log("inside the setNextQuestions")
+  A.textContent = quizArray[currentQuestionIndex].options[0];
+  B.textContent = quizArray[currentQuestionIndex].options[1];
+  C.textContent = quizArray[currentQuestionIndex].options[2];
+  D.textContent = quizArray[currentQuestionIndex].options[3];
 
 }
 
@@ -105,6 +105,9 @@ function optionsButton (id) {
 
 function showScore() {
   // Calls function to show score and option to enter intials into Highscores 
+  container.setAttribute("class", "hide");
+  viewHighscores.setAttribute("class", "hide");
+  highscoreDiv.removeAttribute("class", "hide");
 
 }
 
@@ -114,7 +117,7 @@ function setTime () {
         secondsLeft--;
         time.textContent = secondsLeft + " seconds left";
   
-        if(secondsLeft === 0) {
+        if(secondsLeft <= 0) {
             // Stops execution of action at set interval 0
             clearInterval(timerInterval);
             // Calls function to show score and option to enter intials into Highscores 
