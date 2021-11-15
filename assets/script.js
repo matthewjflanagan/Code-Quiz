@@ -11,7 +11,7 @@ var answers = document.getElementById("answers");
 var highscoreDiv = document.getElementById("highscoresDiv");
 var viewHighscores = document.getElementById("highscores");
 var currentQuestionIndex = 0;
-var highscoresPage = document.getElementById("highscoresPage");
+var UserHighscoresPage = document.getElementById("user-name");
 
 // var options = [A, B, C, D];
 var A = document.getElementById("A");
@@ -120,7 +120,8 @@ function showScore() {
 
 function renderHighscores() {
   var userName = localStorage.getItem('userName', userName)
-  highscoresPage.textContent = userName;
+  UserHighscoresPage.textContent = userName;
+  console.log(userName);
 }
 
 save.addEventListener('click', function () {
