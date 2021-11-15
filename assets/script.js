@@ -124,9 +124,14 @@ function renderHighscores() {
 }
 
 save.addEventListener('click', function () {
+  console.log('hit save button')
   var userName = document.getElementById("userName").value;
   localStorage.setItem('userName', userName)
   // save quiz grade with userName entry
+  highscoreDiv.setAttribute("class", "hide");
+  container.removeAttribute("class", "hide");
+  viewHighscores.removeAttribute("class", "hide");
+  renderHighscores();
 });
 
 function setTime () {
