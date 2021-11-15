@@ -119,8 +119,7 @@ function showScore() {
 }
 
 function renderHighscores() {
-  var userName = localStorage.getItem('userName', userName)
-  UserHighscoresPage.textContent = userName;
+  UserHighscoresPage.textContent = localStorage.getItem('userName', userName)
   console.log(userName);
 }
 
@@ -142,10 +141,15 @@ function setTime () {
         time.textContent = secondsLeft + " seconds left";
   
         if(secondsLeft <= 0) {
-            // Stops execution of action at set interval 0
-            clearInterval(timerInterval);
-            // Calls function to show score and option to enter intials into Highscores 
-            showScore();
+          // Stops execution of action at set interval 0
+          clearInterval(timerInterval);
+          // Calls function to show score and option to enter intials into Highscores 
+          showScore();
+        } else if (currentQuestionIndex > 5) {
+          // Stops execution of action at set interval 0
+          clearInterval(timerInterval);
+          // Calls function to show score and option to enter intials into Highscores 
+          showScore();
         }
       }, 1000);
   }
