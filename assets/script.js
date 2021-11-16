@@ -93,6 +93,8 @@ scoresBtn.addEventListener('click', function () {
     container.setAttribute("class", "hide");
     // hide score entry div 
     scoreEntry.setAttribute("class", "hide");
+    // renders highscores
+    renderHighscores();
   } 
   // If start button has not been pressed show it
   else {
@@ -139,16 +141,15 @@ function renderHighscores() {
   var userName = localStorage.getItem('userName')
   var score = localStorage.getItem('score');
   document.getElementById('userName').value = userName;
-  document.getElementById('score').value = score;
-  document.getElementById('userName').textContent = userName;
-  document.getElementById('score').textContent = score;
+  document.getElementById('savedUserName').textContent = "Username: " + userName;
+  document.getElementById('finalScore').textContent = "Score: " + score;
 }
 
 // sets the username and score to local storage and shows highscore when button is clicked 
 saveBtn.addEventListener('click', function () {
   // set name and score to local storage
   var userName = document.getElementById("userName").value;
-  var score = document.getElementById("score").value;
+  var score = points;
   localStorage.setItem('userName', userName);
   localStorage.setItem('score', score);
 
