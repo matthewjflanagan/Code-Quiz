@@ -118,12 +118,12 @@ function showScore() {
 }
 
 function renderHighscores() {
-  var initials = localStorage.getItem('userName', userName)
-  var score = localStorage.getItem('points', points)
+  var initials = localStorage.getItem('userName')
+  var score = localStorage.getItem('grade');
   document.getElementById('user-name').value = initials;
   document.getElementById('user-score').value = score;
-  UserHighscoresPage.textContent = initials;
-  UserHighscoresPageScore.textContent = score;
+  document.getElementById('user-name').textContent = initials;
+  document.getElementById('user-score').textContent = score;
 }
 
 save.addEventListener('click', function () {
@@ -131,7 +131,7 @@ save.addEventListener('click', function () {
   var userName = document.getElementById("userName").value;
   var score = document.getElementById("score").value;
   localStorage.setItem('userName', userName);
-  localStorage.setItem('score', score);
+  localStorage.setItem('grade', points);
   // save quiz grade with userName entry
   highscoreDiv.setAttribute("class", "hide");
   container.removeAttribute("class", "hide");
