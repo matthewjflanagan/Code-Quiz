@@ -136,21 +136,21 @@ function showScore() {
 
 // renders the username and quiz grade from local storage into HighScores Div
 function renderHighscores() {
-  var initials = localStorage.getItem('userName')
-  var score = localStorage.getItem('grade');
-  document.getElementById('user-name').value = initials;
-  document.getElementById('user-score').value = score;
-  document.getElementById('user-name').textContent = initials;
-  document.getElementById('user-score').textContent = score;
+  var userName = localStorage.getItem('userName')
+  var score = localStorage.getItem('score');
+  document.getElementById('userName').value = userName;
+  document.getElementById('score').value = score;
+  document.getElementById('userName').textContent = userName;
+  document.getElementById('score').textContent = score;
 }
 
 // sets the username and score to local storage and shows highscore when button is clicked 
 saveBtn.addEventListener('click', function () {
-  // set initials and score to local storage
+  // set name and score to local storage
   var userName = document.getElementById("userName").value;
   var score = document.getElementById("score").value;
   localStorage.setItem('userName', userName);
-  localStorage.setItem('score', points);
+  localStorage.setItem('score', score);
 
   // display highscores when save button is clicked
   viewScores.removeAttribute("class", "hide");
@@ -167,8 +167,11 @@ quizBtn.addEventListener('click', function () {
   // If quiz button is pressed hide it
   if (mode === "go") {
     mode = "hide";
+    location.reload();
     // hides highscores div 
     viewScores.setAttribute("class", "hide");
+    // hides score entry div
+    scoreEntry.setAttribute("class", "hide");
     // displays questions div 
     container.removeAttribute("class", "hide");
   } 
