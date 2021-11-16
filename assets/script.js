@@ -12,14 +12,13 @@ var highscoreDiv = document.getElementById("highscoresDiv");
 var viewHighscores = document.getElementById("highscores");
 var currentQuestionIndex = 0;
 var UserHighscoresPage = document.getElementById("user-name");
+var UserHighscoresPageScore = document.getElementById("user-name");
 
 // var options = [A, B, C, D];
 var A = document.getElementById("A");
 var B = document.getElementById("B");
 var C = document.getElementById("C");
 var D = document.getElementById("D");
-
-question.textContent = "Click Start to begin the quiz!";
 
 var quizArray = [
   {
@@ -119,14 +118,20 @@ function showScore() {
 }
 
 function renderHighscores() {
-  UserHighscoresPage.textContent = localStorage.getItem('userName', userName)
-  console.log(userName);
+  var initials = localStorage.getItem('userName', userName)
+  var score = localStorage.getItem('points', points)
+  document.getElementById('user-name').value = initials;
+  document.getElementById('user-score').value = score;
+  UserHighscoresPage.textContent = initials;
+  UserHighscoresPageScore.textContent = score;
 }
 
 save.addEventListener('click', function () {
   console.log('hit save button')
   var userName = document.getElementById("userName").value;
-  localStorage.setItem('userName', userName)
+  var score = document.getElementById("score").value;
+  localStorage.setItem('userName', userName);
+  localStorage.setItem('score', score);
   // save quiz grade with userName entry
   highscoreDiv.setAttribute("class", "hide");
   container.removeAttribute("class", "hide");
