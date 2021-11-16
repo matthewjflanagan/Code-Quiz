@@ -15,16 +15,7 @@ header {
     visibility: hidden;
 }
 
-#container {
-    width: 800px;
-    max-width: 80%;
-    background-color: antiquewhite;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0 0 10px 2px;
-}
-
-#highscoresDiv {
+.theme {
     width: 800px;
     max-width: 80%;
     background-color: antiquewhite;
@@ -37,7 +28,7 @@ header {
     width: fit-content;
 } */
 
-#question {
+#quizCard {
     font-weight: bold;
     color: lightyellow;
     background-color: lightslategray;
@@ -45,7 +36,7 @@ header {
     border: 2px solid black;
 }
 
-#start-btn {
+.btn {
     color: lightyellow;
     background-color: lightslategray;
 }
