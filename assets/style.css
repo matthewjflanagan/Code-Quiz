@@ -3,6 +3,10 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
+body {
+    background-color: #282828;
+}
+
 /* setting the display for timer and highscore link */
 header {
     display: flex;
@@ -16,12 +20,13 @@ header {
 }
 
 .theme {
-    width: 800px;
-    max-width: 80%;
-    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #282828;
     border-radius: 5px;
     padding: 10px;
-    box-shadow: 0 0 10px 2px;
+    border: 2px dotted white;
 }
 
 /* #answer-buttons {
@@ -30,13 +35,34 @@ header {
 
 #quizCard {
     font-weight: bold;
-    color: lightyellow;
-    background-color: lightslategray;
+    color: #41FF00;
+    text-align: center;
+    background-color: #282828;
     padding: 5px;
-    border: 2px solid black;
+    border: 2px dotted white;
 }
 
 .btn {
-    color: lightyellow;
-    background-color: lightslategray;
+    color: #41FF00;
+    background-color: #282828;
+    border: 2px dotted white;
+    margin: 5px 0;
+}
+
+#time {
+    color: #41FF00; 
+}
+
+#answers {
+    display: flex;
+    justify-content: space-around;
+}
+
+.answerBtn {
+    color: #41FF00;
+    background-color: #282828;
+    border: 2px dotted white;
+    margin: 5px 0;
+    padding: 20px;
+    cursor:pointer;
 }
